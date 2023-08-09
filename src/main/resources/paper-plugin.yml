@@ -10,4 +10,4 @@ dependencies:
       load: BEFORE
 
 author: slqmy
-description: The plugin to run Slime Bot and sync Minecraft server data to the Discord server.
+description: The plugin to run Slime Bot and synchronise Minecraft server data to the Discord server.
