@@ -9,7 +9,7 @@ import net.slqmy.tss_slimebot_plugin.event.listener.ReadyListener;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class TSSSlimeBotPlugin extends JavaPlugin {
+public final class TssSlimebotPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
