@@ -1,18 +1,55 @@
 import xyz.jpenilla.resourcefactory.bukkit.BukkitPluginYaml
 
 plugins {
+  java
   `java-library`
+
   id("io.papermc.paperweight.userdev") version "1.7.1"
-  id("xyz.jpenilla.run-paper") version "2.3.0" // Adds runServer and runMojangMappedServer tasks for testing
-  id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.1.1" // Generates plugin.yml based on the Gradle config
+  id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.1.1"
+  id("xyz.jpenilla.run-paper") version "2.3.0"
+
+  id("io.github.goooler.shadow") version "8.1.7"
 }
 
-group = "net.slqmy"
-version = "0.1"
+val groupStringSeparator = "."
+val kebabcaseStringSeparator = "-"
+val snakecaseStringSeparator = "_"
+
+fun capitalizeFirstLetter(string: String): String {
+  return string.first().uppercase() + string.slice(IntRange(1, string.length - 1))
+}
+
+fun snakecase(kebabcaseString: String): String {
+  return kebabcaseString.lowercase().replace(kebabcaseStringSeparator, snakecaseStringSeparator)
+}
+
+fun pascalcase(kebabcaseString: String): String {
+  var pascalCaseString = ""
+
+  val splitString = kebabcaseString.split(kebabcaseStringSeparator)
+
+  for (part in splitString) {
+    pascalCaseString += capitalizeFirstLetter(part)
+  }
+
+  return pascalCaseString
+}
+
 description = "The plugin to run Slime Bot and synchronise Minecraft server data to the Discord server."
 
+val mainProjectAuthor = "Slqmy"
+val projectAuthors = listOfNotNull(mainProjectAuthor)
+
+val topLevelDomain = "net"
+
+group = topLevelDomain + groupStringSeparator + mainProjectAuthor.lowercase() + groupStringSeparator + snakecase(rootProject.name)
+version = "1.0.0-SNAPSHOT"
+
+val javaVersion = 21
+val paperApiVersion = "1.21"
+
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+  toolchain.languageVersion = JavaLanguageVersion.of(javaVersion)
 }
 
 repositories {
@@ -20,25 +57,27 @@ repositories {
 }
 
 dependencies {
-    compileOnly(files("../TSS-Core/build/libs/tss_core-0.1-dev-all.jar"))
+  compileOnly(files("../tss-core/build/libs/tss_core-0.1-dev-all.jar"))
+  paperweight.paperDevBundle(paperApiVersion + "-R0.1-SNAPSHOT")
 
-    paperweight.paperDevBundle("1.21-R0.1-SNAPSHOT")
+  implementation("dev.jorel" , "commandapi-bukkit-shade-mojang-mapped" , "9.5.1")
 }
 
 tasks {
-    compileJava {
-        options.encoding = Charsets.UTF_8.name()
-        options.release.set(21)
-    }
+  compileJava {
+    options.release = javaVersion
+  }
 
-    javadoc {
-        options.encoding = Charsets.UTF_8.name()
-    }
+  javadoc {
+    options.encoding = Charsets.UTF_8.name()
+  }
 }
 
 bukkitPluginYaml {
-  main = "net.slqmy.tss_slimebot.TSSSlimeBotPlugin"
+  authors = projectAuthors
+
+  main = project.group.toString() + groupStringSeparator + pascalcase(rootProject.name)
+  apiVersion = paperApiVersion
+
   load = BukkitPluginYaml.PluginLoadOrder.STARTUP
-  authors.add("Slqmy")
-  apiVersion = "1.21"
 }

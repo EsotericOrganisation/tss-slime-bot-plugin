@@ -1,4 +1,4 @@
-package net.slqmy.tss_slimebot.event.listener;
+package net.slqmy.tss_slimebot_plugin.event.listener;
 
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;

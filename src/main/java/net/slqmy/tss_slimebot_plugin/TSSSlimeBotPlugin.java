@@ -1,10 +1,11 @@
-package net.slqmy.tss_slimebot;
+package net.slqmy.tss_slimebot_plugin;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.slqmy.tss_core.util.DebugUtil;
-import net.slqmy.tss_slimebot.event.listener.ReadyListener;
+import net.slqmy.tss_slimebot_plugin.event.listener.ReadyListener;
+
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
