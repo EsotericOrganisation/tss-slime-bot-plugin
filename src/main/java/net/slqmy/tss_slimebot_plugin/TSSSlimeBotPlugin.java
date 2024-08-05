@@ -11,30 +11,28 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class TSSSlimeBotPlugin extends JavaPlugin {
 
-  @Override
-  public void onEnable() {
-	YamlConfiguration config = (YamlConfiguration) getConfig();
+	@Override
+	public void onEnable() {
+		YamlConfiguration config = (YamlConfiguration) getConfig();
 
-	config.options().copyDefaults();
-	saveDefaultConfig();
+		config.options().copyDefaults();
+		saveDefaultConfig();
 
-	String botToken = config.getString("discord-bot-token");
+		String botToken = config.getString("discord-bot-token");
 
-	JDABuilder jdaBuilder = JDABuilder
-			.createDefault(botToken)
-			.setActivity(Activity.playing("on The Slimy Swamp!"))
-			.addEventListeners(new ReadyListener());
+		JDABuilder jdaBuilder = JDABuilder
+				.createDefault(botToken)
+				.setActivity(Activity.playing("on The Slimy Swamp!"))
+				.addEventListeners(new ReadyListener());
 
-	JDA jda;
+		JDA jda;
 
-	try {
-	  jda = jdaBuilder
-			  .build()
-			  .awaitReady();
-	} catch (InterruptedException exception) {
-	  DebugUtil.handleException("An unexpected error occurred while creating the JDA object!", exception);
+		try {
+			jda = jdaBuilder
+					.build()
+					.awaitReady();
+		} catch (InterruptedException exception) {
+			DebugUtil.handleException("An unexpected error occurred while creating the JDA object!", exception);
+		}
 	}
-
-
-  }
 }

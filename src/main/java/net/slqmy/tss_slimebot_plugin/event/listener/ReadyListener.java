@@ -7,10 +7,10 @@ import net.slqmy.tss_core.util.LogUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class ReadyListener implements EventListener {
-  @Override
-  public void onEvent(@NotNull GenericEvent event) {
-	if (event instanceof ReadyEvent) {
-	  LogUtil.log("Slime bot is logged in and ready!");
+	@Override
+	public void onEvent(@NotNull GenericEvent event) {
+		if (event instanceof ReadyEvent) {
+			LogUtil.log("Slime bot is logged in and ready!");
+		}
 	}
-  }
 }
