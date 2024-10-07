@@ -3,7 +3,7 @@ package org.esoteric_organisation.tss_slime_bot_plugin;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
-import net.slqmy.tss_core.util.DebugUtil;
+import org.esoteric_organisation.tss_core_plugin.util.DebugUtil;
 import org.esoteric_organisation.tss_slime_bot_plugin.event.listeners.ReadyListener;
 
 import org.bukkit.configuration.file.YamlConfiguration;

@@ -54,10 +54,11 @@ java {
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 dependencies {
-  compileOnly(files("../tss-core/build/libs/tss_core-0.1-dev-all.jar"))
+  compileOnly("com.github.EsotericOrganisation:tss-core-plugin:0.1.6:dev-all")
   paperweight.paperDevBundle("$paperApiVersion-R0.1-SNAPSHOT")
 
   implementation("dev.jorel" , "commandapi-bukkit-shade-mojang-mapped" , "9.5.1")

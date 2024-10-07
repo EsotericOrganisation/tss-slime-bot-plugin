@@ -3,7 +3,7 @@ package org.esoteric_organisation.tss_slime_bot_plugin.event.listeners;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
-import net.slqmy.tss_core.util.LogUtil;
+import org.esoteric_organisation.tss_core_plugin.util.LogUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class ReadyListener implements EventListener {
