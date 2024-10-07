@@ -35,7 +35,7 @@ fun pascalcase(kebabcaseString: String): String {
   return pascalCaseString
 }
 
-description = "The plugin to run Slime Bot and synchronise Minecraft server data to the Discord server."
+description = "The Minecraft plugin to run Slime Bot and synchronise [The Slimy Swamp](https://github.com/EsotericOrganisation/tss-website?tab=readme-ov-file#what-is-the-slimy-swamp) Minecraft server data to the Discord server."
 
 val mainProjectAuthor = "Slqmy"
 val projectAuthors = listOfNotNull(mainProjectAuthor)
@@ -78,6 +78,8 @@ bukkitPluginYaml {
 
   main = project.group.toString() + groupStringSeparator + pascalcase(rootProject.name)
   apiVersion = paperApiVersion
+
+  description = project.description
 
   load = BukkitPluginYaml.PluginLoadOrder.STARTUP
 }
