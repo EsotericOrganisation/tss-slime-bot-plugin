@@ -1,4 +1,4 @@
-package net.slqmy.tss_slimebot_plugin.event.listener;
+package org.esoteric_organisation.tss_slime_bot_plugin.event.listeners;
 
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;

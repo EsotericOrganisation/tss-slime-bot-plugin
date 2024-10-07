@@ -37,10 +37,10 @@ fun pascalcase(kebabcaseString: String): String {
 
 description = "The Minecraft plugin to run Slime Bot and synchronise The Slimy Swamp Minecraft server data to the Discord server."
 
-val mainProjectAuthor = "Slqmy"
-val projectAuthors = listOfNotNull(mainProjectAuthor)
+val mainProjectAuthor = "Esoteric Organisation"
+val projectAuthors = listOfNotNull(mainProjectAuthor, "Esoteric Enderman")
 
-val topLevelDomain = "net"
+val topLevelDomain = "org"
 
 group = topLevelDomain + groupStringSeparator + mainProjectAuthor.lowercase() + groupStringSeparator + snakecase(rootProject.name)
 version = "1.0.0-SNAPSHOT"
