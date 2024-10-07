@@ -58,7 +58,7 @@ repositories {
 
 dependencies {
   compileOnly(files("../tss-core/build/libs/tss_core-0.1-dev-all.jar"))
-  paperweight.paperDevBundle(paperApiVersion + "-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("$paperApiVersion-R0.1-SNAPSHOT")
 
   implementation("dev.jorel" , "commandapi-bukkit-shade-mojang-mapped" , "9.5.1")
 }
