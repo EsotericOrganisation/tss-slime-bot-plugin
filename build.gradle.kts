@@ -42,7 +42,7 @@ val projectAuthors = listOfNotNull(mainProjectAuthor, "Esoteric Enderman")
 
 val topLevelDomain = "org"
 
-group = topLevelDomain + groupStringSeparator + snakecase(mainProjectAuthor) + groupStringSeparator + snakecase(rootProject.name)
+group = topLevelDomain + groupStringSeparator + "esoteric"
 version = "1.0.0-SNAPSHOT"
 
 val javaVersion = 21
@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-  compileOnly("com.github.EsotericOrganisation:tss-core-plugin:0.1.6:dev-all")
+  compileOnly("com.github.EsotericOrganisation:tss-core-plugin:0.2.1:dev-all")
   paperweight.paperDevBundle("$paperApiVersion-R0.1-SNAPSHOT")
 
   implementation("dev.jorel" , "commandapi-bukkit-shade-mojang-mapped" , "9.5.1")
@@ -75,12 +75,13 @@ tasks {
 }
 
 bukkitPluginYaml {
+  name = "TSSSlimeBot"
+  description = project.description
   authors = projectAuthors
 
-  main = project.group.toString() + groupStringSeparator + pascalcase(rootProject.name)
+  version = project.version.toString()
   apiVersion = paperApiVersion
-
-  description = project.description
-
+  depend.add("TSSCore")
+  main = project.group.toString() + groupStringSeparator + "tss.minecraft.plugins.discord.bot" + groupStringSeparator + "TSSSlimeBotPlugin"
   load = BukkitPluginYaml.PluginLoadOrder.STARTUP
 }

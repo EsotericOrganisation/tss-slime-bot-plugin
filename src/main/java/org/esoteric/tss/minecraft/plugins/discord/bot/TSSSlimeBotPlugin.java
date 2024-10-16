@@ -1,10 +1,10 @@
-package org.esoteric_organisation.tss_slime_bot_plugin;
+package org.esoteric.tss.minecraft.plugins.discord.bot;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
-import org.esoteric_organisation.tss_core_plugin.util.DebugUtil;
-import org.esoteric_organisation.tss_slime_bot_plugin.event.listeners.ReadyListener;
+import org.esoteric.tss.minecraft.plugins.core.util.DebugUtil;
+import org.esoteric.tss.minecraft.plugins.discord.bot.event.listeners.ReadyListener;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,7 +31,7 @@ public final class TSSSlimeBotPlugin extends JavaPlugin {
 			jda = jdaBuilder
 					.build()
 					.awaitReady();
-		} catch (InterruptedException exception) {
+		} catch (InterruptedException | IllegalArgumentException exception) {
 			DebugUtil.handleException("An unexpected error occurred while creating the JDA object!", exception);
 		}
 	}
